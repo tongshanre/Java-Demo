@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.tong</groupId>
+    <artifactId>java-agent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <!--                1.javaagent               -->
+                    <!-- javaagent demo -->
+                    <!--
+                    <configuration>
+                        <finalName>JavaAgentDemo-${project.version}</finalName>
+                        <archive>
+                            <manifestEntries>
+                                <Premain-class>com.tong.javaagent.JavaAgentDemo</Premain-class>
+                                <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                                <Can-Retransform-Classes>true</Can-Retransform-Classes>
+                            </manifestEntries>
+                        </archive>
+                    </configuration> -->
+                    <!-- javaagent main -->
+                    <!--
+                    <configuration>
+                        <finalName>JavaAgentMain-${project.version}</finalName>
+                        <archive>
+                            <manifestEntries>
+                                <Main-class>com.tong.javaagent.JaveAgentMain</Main-class>
+                            </manifestEntries>
+                        </archive>
+                    </configuration> -->
+                    <!--                2.agentmain            -->
+                    <!-- agentmain main -->
+                    <configuration>
+                        <finalName>AgentMain-${project.version}</finalName>
+                        <archive>
+                            <manifestEntries>
+                                <Main-Class>com.tong.agentmain.AgentMain</Main-Class>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                    <!-- agentmain demo -->
+                    <!--
+                    <configuration>
+                        <finalName>AgentMain-Demo-${project.version}</finalName>
+                        <archive>
+                            <manifestEntries>
+                                <Agent-Class>com.tong.agentmain.AgentMainDemo</Agent-Class>
+                                <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                                <Can-Retransform-Classes>true</Can-Retransform-Classes>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                    -->
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
