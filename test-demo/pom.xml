@@ -17,8 +17,11 @@
     </parent>
 
     <modules>
-        <module>java-agent</module>
-        <module>springboot-demo</module>
+       <!-- <module>java-agent</module>-->
+      <!--  <module>springboot-demo</module>-->
+        <module>java-annotation</module>
+        <module>java-base</module>
+        <module>java-annotation-work</module>
     </modules>
 
     <dependencyManagement>
