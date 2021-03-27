@@ -22,6 +22,7 @@
         <module>java-annotation</module>
         <module>java-base</module>
         <module>java-annotation-work</module>
+        <module>java-lucene</module>
     </modules>
 
     <dependencyManagement>
