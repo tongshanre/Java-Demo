@@ -21,13 +21,19 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-       <!-- <dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.28.0-GA</version>
+        </dependency>
+        <dependency>
             <groupId>com.sun</groupId>
             <artifactId>tools</artifactId>
-            <version>1.8.0</version>
+            <version>1.8</version>
             <scope>system</scope>
-            <systemPath>/usr/local/software/jdk1.8.0_261/lib/tools.jar</systemPath>
-        </dependency>-->
+            <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
@@ -35,66 +41,31 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <!--                1.javaagent               -->
-                    <!-- javaagent demo -->
-                    <!--
+                    <artifactId>maven-assembly-plugin</artifactId>
                     <configuration>
-                        <finalName>JavaAgentDemo-${project.version}</finalName>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
                         <archive>
                             <manifestEntries>
-                                <Premain-class>com.tong.javaagent.JavaAgentDemo</Premain-class>
-                                <Can-Redefine-Classes>true</Can-Redefine-Classes>
-                                <Can-Retransform-Classes>true</Can-Retransform-Classes>
-                            </manifestEntries>
-                        </archive>
-                    </configuration> -->
-                    <!-- javaagent main -->
-                    <!--
-                    <configuration>
-                        <finalName>JavaAgentMain-${project.version}</finalName>
-                        <archive>
-                            <manifestEntries>
-                                <Main-class>com.tong.javaagent.JaveAgentMain</Main-class>
-                            </manifestEntries>
-                        </archive>
-                    </configuration> -->
-                    <!--                2.agentmain            -->
-                    <!-- agentmain main -->
-                    <configuration>
-                        <finalName>AgentMain-${project.version}</finalName>
-                        <archive>
-                            <manifestEntries>
-                                <Main-Class>com.tong.agentmain.AgentMain</Main-Class>
-                            </manifestEntries>
-                        </archive>
-                    </configuration>
-                    <!-- agentmain demo -->
-                    <!--
-                    <configuration>
-                        <finalName>AgentMain-Demo-${project.version}</finalName>
-                        <archive>
-                            <manifestEntries>
-                                <Agent-Class>com.tong.agentmain.AgentMainDemo</Agent-Class>
+                                <Main-Class>com.tong.javaagent.NewPreMain</Main-Class>
+                                <Premain-Class>com.tong.javaagent.NewPreMain</Premain-Class>
+                                <Agent-Class>com.tong.javaagent.NewPreMain</Agent-Class>
                                 <Can-Redefine-Classes>true</Can-Redefine-Classes>
                                 <Can-Retransform-Classes>true</Can-Retransform-Classes>
                             </manifestEntries>
                         </archive>
                     </configuration>
-                    -->
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                            <phase>package</phase>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 </project>
-

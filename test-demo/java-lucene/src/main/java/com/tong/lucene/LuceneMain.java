@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 public class LuceneMain {
+
     public static void main(String[] args) throws IOException {
         Path path = new File("indexs_dir").toPath();
         FSDirectory fsDirectory = new MMapDirectory(path);

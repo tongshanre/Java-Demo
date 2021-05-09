@@ -17,12 +17,15 @@
     </parent>
 
     <modules>
-       <!-- <module>java-agent</module>-->
-      <!--  <module>springboot-demo</module>-->
+        <module>java-agent</module>
+        <!--  <module>springboot-demo</module>-->
         <module>java-annotation</module>
         <module>java-base</module>
         <module>java-annotation-work</module>
         <module>java-lucene</module>
+        <module>java-spring</module>
+        <module>stone</module>
+        <module>java-agentmain</module>
     </modules>
 
     <dependencyManagement>
