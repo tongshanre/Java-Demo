@@ -25,7 +25,7 @@
         <module>java-lucene</module>
         <module>java-spring</module>
         <module>stone</module>
-        <module>java-agentmain</module>
+        <module>demo-maven-plugin</module>
     </modules>
 
     <dependencyManagement>

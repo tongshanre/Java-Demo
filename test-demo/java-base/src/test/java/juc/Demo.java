@@ -1,6 +1,5 @@
 package juc;
 
-import org.junit.Test;
 import sun.misc.Unsafe;
 
 import java.io.IOException;
@@ -459,4 +458,30 @@ public class Demo {
         List list = new ArrayList();
     }
 
+    /**
+     * 测试线程的stop方法
+     *
+     * @throws InterruptedException
+     */
+    public void testStop() throws InterruptedException {
+        Object flag = new Object();
+        Thread t = new Thread(() -> {
+            while (true) {
+                System.out.println(System.currentTimeMillis());
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ThreadDeath e) {
+                    e.printStackTrace();
+                    System.out.println("Thread is be killed");
+                    break;
+                }
+            }
+            System.out.println("Thread exit");
+        });
+        t.start();
+        Thread.sleep(2000);
+        t.stop();
+    }
 }
