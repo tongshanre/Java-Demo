@@ -26,6 +26,7 @@
         <module>java-spring</module>
         <module>stone</module>
         <module>demo-maven-plugin</module>
+        <module>java-pool</module>
     </modules>
 
     <dependencyManagement>
