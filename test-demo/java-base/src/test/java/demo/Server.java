@@ -20,5 +20,14 @@ public class Server {
             }
 
         }).start();
+
+        ClassLoader classLoader = new ClassLoader() {
+
+            @Override
+            protected Class<?> findClass(String name) throws ClassNotFoundException {
+                getSystemClassLoader();
+                return this.defineClass(name, new byte[10], 0, 10);
+            }
+        };
     }
 }
